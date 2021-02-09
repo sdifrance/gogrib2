@@ -2,6 +2,7 @@ package gogrib2
 
 import (
 	"encoding/binary"
+	"fmt"
 	"time"
 
 	"github.com/pkg/errors"
@@ -61,6 +62,7 @@ func Read(data []byte) ([]GRIB2, error) {
 		cur := 0
 		eof := false
 		for !eof {
+			fmt.Println(sections)
 			prv = cur
 			if prv == 7 {
 				// block is read -> export data to values
